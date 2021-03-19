@@ -59,7 +59,7 @@
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
         </ul>
-        <form class="d-flex" action="login/logout">
+        <form class="d-flex" action="<?php echo site_url('login/logout'); ?>" method="post">
           <button class="btn btn-outline-success" type="submit">Sair</button>
         </form>
       </div>

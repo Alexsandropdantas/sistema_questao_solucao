@@ -213,6 +213,7 @@ class Controlador_principal extends CI_Controller {
 			$resultado_consultar_questoes_solucoes = $this->cadastro_questoes_solucoes_model->consultar_solucao_full_text_search($busca);
 			log_message('debug', 'Busca = '.$busca);
 		}else{
+			$this->load->model('cadastro_questoes_solucoes_model');
 			$resultado_consultar_questoes_solucoes = $this->cadastro_questoes_solucoes_model->consultar_todas_questoes_solucoes();
 			log_message('error', 'buscar_questao com busca = NULA');
 		}
@@ -334,10 +335,11 @@ class Controlador_principal extends CI_Controller {
 	public function adicionar_bot(){
 		$nomebot = $this->input->post("nomebot");
 		$chaveapi = $this->input->post("chaveapi");
-		$id_usuario = $this->CI->session->userdata('controlador_principal')['tb_cadastro_usuarios_id'];
+		$id_usuario = $this->session->userdata('controlador_principal')['tb_cadastro_usuarios_id'];
 		$this->load->model('cadastro_bots_model');
 		$resultadobanco = $this->cadastro_bots_model->adicionar_bot($nomebot, $chaveapi, $id_usuario);
 		log_message('info', "---------------- Controlador_principal adicionar_bot---------------------------");
+		log_message('info', "id_usuario ".$id_usuario);
 		log_message('info', "nomebot ".$nomebot);
 		log_message('info', "chaveapi ".$chaveapi);
 		log_message('info', "---------------- Controlador_principal adicionar_bot---------------------------");

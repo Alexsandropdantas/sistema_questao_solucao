@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
+              <div class="card-body table-responsive p-0" style="height: 600px;">
                 <table class="table table-head-fixed text-nowrap">
                   <thead>
                     <tr>

@@ -1,10 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-    class Autorizacao
-    {
-        private $CI;
-        private $permissaoView = 'login'; // view correspondente à página de usuário sem permissão de acesso
-        private $loginView = 'login';     // Recebe o nome da view correspondente à tela de login
-        public function __construct(){
+class Autorizacao
+{
+    private $CI;
+    private $permissaoView = 'login'; // view correspondente à página de usuário sem permissão de acesso
+    private $loginView = 'login';     // Recebe o nome da view correspondente à tela de login
+    public function __construct(){
         $this->CI = &get_instance();
     }
 
@@ -23,9 +23,9 @@
             $consultarUsuarios = $this->CI->db->where($array)->get('tb_cadastro_usuarios');
             $usuarioRetornado = $consultarUsuarios->result_array();
 
-            if(count($usuarioRetornado)==0){ redirect($this->permissaoView, 'refresh'); }
+            if(count($usuarioRetornado)==0){ redirect($this->permissaoView); }
             else{ return true; }
         }
-            else{ redirect($this->permissaoView, 'refresh'); }
-        }
+            else{ redirect($this->permissaoView); }
     }
+}
